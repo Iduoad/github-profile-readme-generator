@@ -81,6 +81,7 @@ jobs:
       attestations: write
       id-token: write
       # 
+    needs: build
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -114,4 +115,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        artifact_name: "build"
+        with:
+          artifact_name: "build"
